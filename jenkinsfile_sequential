@@ -14,7 +14,8 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn compile  -f pom.xml' 
+	        sh 'cd myfirstapp/pom.xml'
+                sh 'mvn compile' 
             }
         }
         
