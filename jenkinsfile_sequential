@@ -5,7 +5,7 @@ pipeline {
 
         stage('SCM-pull') {
             steps {
-                echo 'Hello World'
+                git branch: 'main', url: 'https://github.com/mallannabiradar123/devops-demo.git'
             }
         }
         
