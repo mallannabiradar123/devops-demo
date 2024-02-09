@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+          maven 'Maven3'
+    }
 
     stages {
 
@@ -11,7 +14,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                echo 'Hello World'
+                sh 'mvn clean install -f /home/ubuntu/myfirstapp/pom.xml' 
             }
         }
         
