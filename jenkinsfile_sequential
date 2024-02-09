@@ -14,7 +14,7 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn clean install -f /home/ubuntu/myfirstapp/pom.xml' 
+                sh 'mvn clean install -f /opt/myfirstapp/pom.xml' 
             }
         }
         
