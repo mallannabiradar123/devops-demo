@@ -1,10 +1,15 @@
 pipeline {
     agent any
-    tools {
-          maven 'Maven3'
-    }
 
     stages {
+
+        stage('init') {
+            steps {
+                script{
+		gv = load "script.groovy"
+		}
+            }
+        }
 
         stage('SCM-pull') {
             steps {
@@ -14,19 +19,25 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn compile' 
+	    script{
+		gv.buildApp()
+		}
             }
         }
         
         stage('Test') {
             steps {
-                echo 'Hello World'
+	    script{
+		gv.testApp()
+		}
             }
         }
         
         stage('Deploy') {
             steps {
-                echo 'Hello World'
+	    script{
+		gv.deployApp()
+		}
             }
         }
         
